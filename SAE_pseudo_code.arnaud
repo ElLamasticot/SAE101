@@ -1,0 +1,62 @@
+programme puissance4 c'est
+
+    constante entier LONGUEUR := 7;
+    constante entier HAUTEUR := 6;
+
+    fonction crea_tableau (entF/sortF jeu: tableau, entF constante LONGUEUR: entier, entF constante HAUTEUR: entier) délivre tableau c'est
+        // fonction qui créé un tableau pour le puissance 4
+        // paramètres : jeu: tableau, constante LONGUEUR: entier, entF constante HAUTEUR: entier
+        // délivre tableau
+    début 
+        retourne jeu
+    fin
+
+    fonction affiche_tableau(entF/sortF jeu: tableau) délivre tableau c'est
+        // fonction qui affiche le tableau du puissance 4
+        // paramètres : jeu: tableau
+        // délivre tableau
+    début
+        retourne jeu
+    fin
+
+    fonction jouer(entF/sortF jeu: tableau, entF joueur: entier) délivre tableau c'est
+        /* 
+        fonction qui permet de jouer au puissance 4, elle demande à l'utilisateur de se déplacer de colonne en colonne avec q et d, et de jouer avec s (le programme vérifie si la colonne est pleine ou non, la sautant si c'est le cas)
+        */
+        // paramètres : jeu: tableau, joueur: entier
+        // délivre tableau
+    début
+        retourne jeu
+    fin
+
+    procédure verif_victoire(entF jeu: tableau, entF/sortF verif: booléen, sortF gagnant: chaîne(8)) c'est
+    /* procédure qui vérifie si un joueur a gagné ou si le tableau est plein, arretant ainsi la partie.
+    Affiche un message de victoire ou de match nul si c'est le cas.
+    */
+    début
+    fin
+
+
+début
+    // programme principal
+    écrireEcran("Le jeu se joue avec les touches 'q' pour gauche et 'd' pour droite, et la touche 's' pour valider");
+    écrireEcran("Le joueur 1 en rouge joue avec les 'R' et le joueur 2  en jaune joue avec les 'J'");
+    verif : booléen;
+    jeu : tableau;
+    joueur : entier;
+    verif := faux;
+    tant que (verif== faux) faire
+        joueur := 1;
+        jeu : tableau[HAUTEUR][LONGUEUR] := crea_tableau(entE/sortE jeu, entE LONGUEUR, entE HAUTEUR);
+        affiche_tableau(entE/sortE jeu);
+        jeu : tableau := jouer(entE/sortE jeu, entE joueur);
+        verif_victoire(entE jeu, entE/sortE verif);
+        si verif == faux alors
+            joueur := 2;
+            affiche_tableau(entE/sortE jeu);
+            jeu : tableau := jouer(entE/sortE jeu, entE joueur);
+            verif_victoire(entE jeu, entE/sortE verif);
+        finsi
+
+    finfaire
+fin
